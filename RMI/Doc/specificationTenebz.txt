@@ -1,0 +1,8 @@
+le client
+
+I une fenêtre d'identification
+		entrer un pseudonyme.  -> client.java
+
+II Une fenêtre de chat
+
+un

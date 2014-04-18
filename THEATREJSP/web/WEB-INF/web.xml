@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>AccesControlServlet</servlet-name>
+        <servlet-class>AccesControlServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccesControlServlet</servlet-name>
+        <url-pattern>/AccesControlServlet</url-pattern>
+    </servlet-mapping>
+    
+    
+     <security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
+			<url-pattern>/AccesControlServlet</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		
+                <auth-constraint>
+			<role-name>tomcat</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			<!-- transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE -->
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+
+
+    
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
